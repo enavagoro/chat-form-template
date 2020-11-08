@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div class="chat-container-vs-lir dont-show-vs-lir" id="chat-vs-lir">
+      <div class="bar-chat-vs-lir">
+        <h1 class="title-chat-vs-lir">Contáctanos</h1>
+        <div class="close-button-container-vs-lir">
+          <img class="close-button-vs-lir" onclick="changeChatStateVsLir(false)" src="https://www.flaticon.com/svg/static/icons/svg/1053/1053184.svg">
+        </div>
+      </div>
+      <div class="form-container-vs-lir">
+        <form class="form-vs-lir">
+          <div class="step-1-vs-lir" id="step-1-vs-lir">
+            <h1 class="title-form-vs-lir">Envíanos una solicitud</h1>
+            <div class="image-container-vs-lir">
+              <img class="image-vs-lir" src="https://www.flaticon.com/svg/static/icons/svg/3721/3721607.svg">
+            </div>
+    <!--
+            <h1 class="subtitle-form-vs-lir">Selecciona una categoría</h1>
+            <div class="input-container-vs-lir">
+              <div class="radio-container-vs-lir">
+                <input type="radio" id="preguntas" name="radio-vs-lir" value="preguntas" checked>
+                <label class="label-vs-lir" for="preguntas">Preguntas generales sobre Majus</label>
+              </div>
+
+              <div class="radio-container-vs-lir">
+                <input type="radio" id="tecnicos" name="radio-vs-lir" value="tecnicos">
+                <label class="label-vs-lir" for="tecnicos">Problemas Técnicos: Instalación, actualización, errores en la herramienta, etc.</label>
+              </div>
+
+              <div class="radio-container-vs-lir">
+                <input type="radio" id="facturacion" name="radio-vs-lir" value="facturacion">
+                <label class="label-vs-lir" for="facturacion">Facturaciones y Pagos</label>
+              </div>
+
+              <div class="radio-container-vs-lir">
+                <input type="radio" id="seguridad" name="radio-vs-lir" value="seguridad">
+                <label class="label-vs-lir" for="seguridad">Confianza y Seguridad</label>
+              </div>
+
+              <div class="radio-container-vs-lir">
+                <input type="radio" id="credenciales" name="radio-vs-lir" value="credenciales">
+                <label class="label-vs-lir" for="credenciales">Problemas con Credenciales de Inicio de Sesión y Registro</label>
+              </div>
+            </div>
+                    -->
+            <div class="input-container-vs-lir">
+              <input class="button-vs-lir" type="button" onclick="nextStepVsLir(0)" value="Continuar">
+            </div>
+
+          </div>
+
+          <div class="step-2-vs-lir dont-show-vs-lir" id="step-2-vs-lir">
+            <h1 class="subtitle-form-vs-lir">Escribe tus datos de contacto</h1>
+
+            <div class="input-container-vs-lir">
+              <label class="label-vs-lir" for="name-vs-lir">Nombre:</label>
+              <input class="input-vs-lir" type="text" id="name-vs-lir" name="name-vs-lir" required>
+            </div>
+            <div class="input-container-vs-lir">
+              <label class="label-vs-lir" for="mail-vs-lir">Correo:</label>
+              <input class="input-vs-lir" type="email" id="mail-vs-lir" name="mail-vs-lir" required>
+            </div>
+            <div class="input-container-vs-lir">
+              <input class="button-vs-lir" type="button" onclick="nextStepVsLir(1)" value="Continuar">
+            </div>
+            <div class="input-container-vs-lir">
+              <input class="button-vs-lir" type="button" onclick="lastStepVsLir(1)" value="Volver">
+            </div>
+          </div>
+
+          <div class="step-3-vs-lir dont-show-vs-lir" id="step-3-vs-lir">
+            <h1 class="subtitle-form-vs-lir">Describe tu solicitud</h1>
+
+            <div class="input-container-vs-lir">
+              <label class="label-vs-lir" for="subject-vs-lir">Asunto:</label>
+              <input class="input-vs-lir" type="text" id="subject-vs-lir" name="subject-vs-lir" required>
+            </div>
+            <div class="input-container-vs-lir">
+              <label class="label-vs-lir" for="description-vs-lir">Descripción: </label>
+              <textarea class="textarea-vs-lir" type="text" name="description-vs-lir" id="description-vs-lir" rows="4" cols="50" required>
+              </textarea>
+            </div>
+            <div class="input-container-vs-lir">
+              <input class="button-vs-lir" type="button" onclick="sendForm()" value="Enviar Solicitud">
+            </div>
+            <div class="input-container-vs-lir">
+              <input class="button-vs-lir" type="button" onclick="lastStepVsLir(2)" value="Volver">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <button class="fab_button_vs_lir" id="fab-vs-lir" onclick="changeChatStateVsLir(true)"><img class="image-fab-button-vs-lir" src="https://vase.cl/lirio/img/logo.png"></button>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,500;1,900&display=swap');
+
+      .chat-container-vs-lir{
+        width: 370px;
+        height: 500px;
+        left: calc(100% - 400px);
+        top: calc(100% - 520px);
+        background: #f5f5f5;
+        border-top-right-radius:7px;
+        border-top-left-radius:7px;
+        border-bottom-right-radius: 7px;
+        border-bottom-left-radius: 7px;
+        position: fixed !important;
+        z-index: 999999;
+        -webkit-box-shadow: 0px 0px 31px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 31px -4px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 31px -4px rgba(0,0,0,0.75);
+      }
+
+      .close-animation-vs-lir{
+        animation: desappear-vs-lir .5s ease-out;
+      }
+
+      .open-animation-vs-lir{
+        animation: appear-vs-lir .5s ease-in;
+      }
+
+      @keyframes desappear-vs-lir {
+        from{
+          opacity: 1;
+        }
+        to{
+          opacity: 0;
+        }
+      }
+
+      .bar-chat-vs-lir{
+        background: #03a9f4;
+        border-top-right-radius:inherit;
+        border-top-left-radius:inherit;
+        height: 60px;
+        display: flex;
+      }
+
+      .close-button-container-vs-lir{
+        margin-top: 10px;
+        margin-right: 20px;
+        cursor: pointer;
+        width: 40px;
+        transition: .5s;
+      }
+
+      .close-button-container-vs-lir:hover{
+        transform: scale(1.1);
+        transition: .5s;
+      }
+
+      .close-button-vs-lir{
+        width: 40px;
+      }
+
+      .title-chat-vs-lir{
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px !important;
+        color: white;
+        font-weight: 600;
+        margin-top: 0%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        width: calc(100% - 45px)
+      }
+
+      .form-container-vs-lir{
+        width: 360px;
+        margin-left: 10px;
+        height: 400px;
+        margin-bottom: 15px;
+        overflow: auto;
+      }
+
+      .step-1-vs-lir{
+        animation: appear-vs-lir 1s ease-in;
+      }
+
+      .step-2-vs-lir{
+        animation: appear-vs-lir 1s ease-in;
+      }
+
+      .step-3-vs-lir{
+        animation: appear-vs-lir 1s ease-in;
+      }
+
+      @keyframes appear-vs-lir {
+        from{
+          opacity: 0;
+        }
+        to{
+          opacity: 1;
+        }
+      }
+
+      .dont-show-vs-lir{
+        display: none;
+      }
+
+      .image-container-vs-lir{
+        width: 70%;
+        margin-left: 15%;
+        margin-top: 15%;
+        padding-bottom: 5%;
+      }
+
+      .image-vs-lir{
+        width: inherit;
+        margin-left: 15%;
+        animation: fly 1.5s ease-out infinite;
+      }
+
+      @keyframes fly {
+        from{
+          transform: translateY(0%);
+        }
+        50%{
+          transform: translateY(30px);
+        }
+        to{
+          transform: translateY(0%);
+        }
+      }
+
+      .title-form-vs-lir{
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 22px !important;
+        color: #010827;
+        font-weight: 600;
+        margin-top: 1%;
+        padding-top: 8%;
+      }
+
+      .subtitle-form-vs-lir{
+        text-align: left;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px !important;
+        color: #010827;
+        font-weight: 600;
+        margin-top: 1%;
+        margin-bottom: 4%;
+        margin-left: 5%;
+        padding-top: 8%;
+      }
+
+
+      .input-container-vs-lir{
+        margin-top: 6%;
+        width: 90%;
+        margin-left: 5%;
+      }
+
+      .radio-container-vs-lir{
+        margin-top: 5%;
+      }
+
+      .input-container-vs-lir .label-vs-lir {
+      	font-family: 'Roboto', sans-serif;
+      	font-size: 15px !important;
+      	color: #010827;
+      	font-weight: 600;
+      	width: 100%;
+      	margin-bottom: 1%;
+      }
+
+
+      .input-container-vs-lir .select-vs-lir {
+      	width: 90%;
+      	padding: 10px 18px;
+      	border-radius: 0px;
+      	box-sizing: border-box;
+      	margin: 10px 5px;
+      }
+
+      .input-container-vs-lir .input-vs-lir {
+      	width: 90% !important;
+      }
+
+      .input-container-vs-lir .input-vs-lir[type=text] {
+      	width: 90% !important;
+      	padding: 10px 18px !important;
+      	margin: 10px 5px !important;
+      	box-sizing: border-box !important;
+        border: auto !important;
+        border-radius: auto !important;
+        height: auto !important;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 16px !important;
+        color: #010827 !important;
+        font-weight: 600 !important;
+      }
+
+      .input-container-vs-lir .input-vs-lir[type=email] {
+      	width: 90%;
+      	padding: 10px 18px;
+      	margin: 10px 5px;
+      	box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px !important;
+        color: #010827;
+        font-weight: 600;
+      }
+
+      .input-container-vs-lir .textarea-vs-lir {
+      	margin: 10px 5px;
+      	padding: 10px 18px;
+      	width: 90%;
+      	box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px !important;
+        color: #010827;
+        font-weight: 600;
+      }
+
+      .input-container-vs-lir .button-vs-lir {
+      	width: 70%;
+      	margin-left: 15%;
+      	border-style: none;
+        background: #03a9f4;
+      	padding: 10px;
+      	border-radius: 8px;
+      	color: white;
+      	font-family: 'Roboto', sans-serif;
+      	font-size: 16px !important;
+      	font-weight: 500;
+        cursor: pointer;
+      }
+
+      .button-vs-lir:hover {
+      	transform: scale(1.02);
+      }
+
+      .fab_button_vs_lir{
+        background-color:#070618;
+        width:60px;
+        height:60px;
+        position: fixed;
+        top: 87%;
+        left: 93%;
+        border-radius:100%;
+        background:#070618;
+        border:none;
+        outline:none;
+        color:#FFF;
+        font-size:36px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition:.3s;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        cursor: pointer;
+        transition: .5s;
+      }
+      .fab_button_vs_lir:hover{
+        transition: .5s;
+        transform: scale(1.2);
+      }
+      .image-fab-button-vs-lir{
+        margin-top: 10px;
+        width: 40px;
+        height: 40px;
+      }
+
+      @media (max-width:900px)  {
+        .chat-container-vs-lir{
+          width: 90%;
+          height: 90%;
+          margin-left: 5%;
+          margin-top: 5%;
+          left: 0;
+          top: 0;
+          background: #f5f5f5;
+          border-top-left-radius:7px;
+          border-top-right-radius:7px;
+          border-bottom-right-radius: 7px;
+          border-bottom-left-radius: 7px;
+          position: fixed !important;
+          z-index: 999999;
+          -webkit-box-shadow: 0px 0px 31px -4px rgba(0,0,0,0.75);
+          -moz-box-shadow: 0px 0px 31px -4px rgba(0,0,0,0.75);
+          box-shadow: 0px 0px 31px -4px rgba(0,0,0,0.75);
+        }
+
+        .form-container-vs-lir{
+          width: 80%;
+          margin-left: 10%;
+          height: 90%;
+          margin-top: 5%;
+          margin-bottom: 5%;
+          overflow: auto;
+        }
+
+        .title-chat-vs-lir{
+          text-align: center;
+          font-family: 'Roboto', sans-serif;
+          font-size: 22px !important;
+          color: white;
+          font-weight: 600;
+          margin-top: 0%;
+          padding-top: 5%;
+          padding-bottom: 5%;
+          width: calc(100% - 45px)
+        }
+
+        .title-form-vs-lir{
+          text-align: center;
+          font-family: 'Roboto', sans-serif;
+          font-size: 22px !important;
+          color: #010827;
+          font-weight: 600;
+          margin-top: 1%;
+          padding-top: 8%;
+        }
+
+        .subtitle-form-vs-lir{
+          text-align: left;
+          font-family: 'Roboto', sans-serif;
+          font-size: 22px !important;
+          color: #010827;
+          font-weight: 600;
+          margin-top: 1%;
+          margin-bottom: 4%;
+          margin-left: 5%;
+          padding-top: 8%;
+        }
+
+
+        .input-container-vs-lir{
+          margin-top: 15%;
+          width: 90%;
+          margin-left: 5%;
+        }
+
+        .input-container-vs-lir .button-vs-lir {
+          width: 90%;
+          margin-left: 5%;
+          border-style: none;
+          background: #03a9f4;
+          padding: 10px;
+          border-radius: 8px;
+          color: white;
+          font-family: 'Roboto', sans-serif;
+          font-size: 16px !important;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .fab_button_vs_lir{
+          background-color:#070618;
+          width:60px;
+          height:60px;
+          position: fixed;
+          top: 90%;
+          left: 75%;
+          border-radius:100%;
+          background:#070618;
+          border:none;
+          outline:none;
+          color:#FFF;
+          font-size:36px;
+          z-index: 9999;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+          transition:.3s;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+          cursor: pointer;
+          transition: .5s;
+        }
+
+      }
+
+      @media (max-width:900px) and (orientation: landscape){
+        .fab_button_vs_lir{
+          display: none;
+        }
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      var stepsVsLir = ['step-1-vs-lir','step-2-vs-lir','step-3-vs-lir'];
+
+      function nextStepVsLir(value){
+        document.getElementById(this.stepsVsLir[value]).classList.add("dont-show-vs-lir");
+        document.getElementById(this.stepsVsLir[value+1]).classList.remove("dont-show-vs-lir");
+      }
+
+      function lastStepVsLir(value){
+        document.getElementById(this.stepsVsLir[value]).classList.add("dont-show-vs-lir");
+        document.getElementById(this.stepsVsLir[value-1]).classList.remove("dont-show-vs-lir");
+      }
+
+      function changeChatStateVsLir(flag){
+        if(flag){
+          document.getElementById('fab-vs-lir').classList.remove("open-animation-vs-lir");
+          document.getElementById('chat-vs-lir').classList.remove("close-animation-vs-lir");
+          document.getElementById('fab-vs-lir').classList.add("close-animation-vs-lir");
+          setTimeout(function(){
+            document.getElementById('fab-vs-lir').classList.add("dont-show-vs-lir");
+            document.getElementById('chat-vs-lir').classList.remove("dont-show-vs-lir");
+            document.getElementById('chat-vs-lir').classList.add("open-animation-vs-lir");
+          }, 500);
+        }
+        else{
+          document.getElementById('chat-vs-lir').classList.remove("open-animation-vs-lir");
+          document.getElementById('fab-vs-lir').classList.remove("close-animation-vs-lir");
+          document.getElementById('chat-vs-lir').classList.add("close-animation-vs-lir");
+          setTimeout(function(){
+            document.getElementById('chat-vs-lir').classList.add("dont-show-vs-lir");
+            document.getElementById('fab-vs-lir').classList.remove("dont-show-vs-lir");
+            document.getElementById('fab-vs-lir').classList.add("open-animation-vs-lir");
+          }, 500);
+        }
+      }
+    </script>
+
+  </body>
+</html>
